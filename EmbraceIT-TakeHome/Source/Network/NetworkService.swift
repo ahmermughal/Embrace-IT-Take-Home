@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkService{
+class NetworkService : NetworkServiceProtocol{
     
     static let shared = NetworkService()
     private var urlSession : URLSession
@@ -19,8 +19,18 @@ class NetworkService{
     
     func getAPI<T:Decodable>(url : String, resultType: T.Type, completed: @escaping (Result<T, NetworkError>) -> Void){
         
-        guard let url = URL(string: url) else {
+        guard var urlComponent = URLComponents(string: url) else {
             
+            completed(.failure(.invalidURL))
+            return
+        }
+        
+        
+        let queryItem = URLQueryItem(name: "key", value: Constants.Network.API_KEY)
+        urlComponent.queryItems = [queryItem]
+
+
+        guard let url = urlComponent.url else{
             completed(.failure(.invalidURL))
             return
         }

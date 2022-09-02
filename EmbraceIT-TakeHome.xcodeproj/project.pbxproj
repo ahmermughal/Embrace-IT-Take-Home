@@ -19,6 +19,7 @@
 		C5500F9D28C25C530034E4D9 /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500F9C28C25C530034E4D9 /* APIs.swift */; };
 		C5500FA028C25D500034E4D9 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500F9F28C25D500034E4D9 /* WeatherResponse.swift */; };
 		C5500FA428C25FD30034E4D9 /* APIsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500FA328C25FD30034E4D9 /* APIsProtocol.swift */; };
+		C5500FA628C2614A0034E4D9 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500FA528C2614A0034E4D9 /* NetworkServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C5500F9C28C25C530034E4D9 /* APIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
 		C5500F9F28C25D500034E4D9 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		C5500FA328C25FD30034E4D9 /* APIsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsProtocol.swift; sourceTree = "<group>"; };
+		C5500FA528C2614A0034E4D9 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				C5500FA328C25FD30034E4D9 /* APIsProtocol.swift */,
+				C5500FA528C2614A0034E4D9 /* NetworkServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				C5500F9B28C25A740034E4D9 /* Constants.swift in Sources */,
 				C5500F6E28C2478C0034E4D9 /* AppDelegate.swift in Sources */,
 				C5500FA028C25D500034E4D9 /* WeatherResponse.swift in Sources */,
+				C5500FA628C2614A0034E4D9 /* NetworkServiceProtocol.swift in Sources */,
 				C5500F7028C2478C0034E4D9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
