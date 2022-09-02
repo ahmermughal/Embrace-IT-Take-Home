@@ -8,7 +8,7 @@
 import UIKit
 
 class CityWeatherListVC: UIViewController {
-        
+    
     private let tableView = UITableView()
     
     private let cities = ["Copenhagen, Denmark", "Lodz, Poland", "Brussels, Belgium", "Islamabad, Pakistan", "Current Location"]
@@ -42,13 +42,14 @@ extension CityWeatherListVC: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: WeatherDetailsCell.ReuseID, for: indexPath)
-                
+        
         return cell
         
     }
     
     
 }
+
 
 // MARK: UI Setup
 extension CityWeatherListVC{
