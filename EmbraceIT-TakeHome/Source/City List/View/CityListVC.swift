@@ -43,7 +43,7 @@ extension CityListVC: UITableViewDataSource, UITableViewDelegate{
 extension CityListVC{
     
     private func configureVC(){
-        title = "Weather"
+        title = Constants.String.weather
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     

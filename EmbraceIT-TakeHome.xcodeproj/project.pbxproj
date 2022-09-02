@@ -15,6 +15,7 @@
 		C5500F9128C24FD50034E4D9 /* WeatherDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500F9028C24FD50034E4D9 /* WeatherDetailsCell.swift */; };
 		C5500F9428C259240034E4D9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500F9328C259240034E4D9 /* NetworkService.swift */; };
 		C5500F9628C2599C0034E4D9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500F9528C2599C0034E4D9 /* NetworkError.swift */; };
+		C5500F9B28C25A740034E4D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500F9A28C25A740034E4D9 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C5500F9028C24FD50034E4D9 /* WeatherDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsCell.swift; sourceTree = "<group>"; };
 		C5500F9328C259240034E4D9 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		C5500F9528C2599C0034E4D9 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		C5500F9A28C25A740034E4D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		C5500F6C28C2478C0034E4D9 /* EmbraceIT-TakeHome */ = {
 			isa = PBXGroup;
 			children = (
+				C5500F9828C25A480034E4D9 /* Utils */,
 				C5500F8228C247D50034E4D9 /* Source */,
 				C5500F8128C247C30034E4D9 /* Support */,
 				C5500F7B28C2478E0034E4D9 /* Info.plist */,
@@ -127,6 +130,14 @@
 				C5500F9328C259240034E4D9 /* NetworkService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		C5500F9828C25A480034E4D9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C5500F9A28C25A740034E4D9 /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +214,7 @@
 				C5500F7228C2478C0034E4D9 /* CityListVC.swift in Sources */,
 				C5500F9128C24FD50034E4D9 /* WeatherDetailsCell.swift in Sources */,
 				C5500F9628C2599C0034E4D9 /* NetworkError.swift in Sources */,
+				C5500F9B28C25A740034E4D9 /* Constants.swift in Sources */,
 				C5500F6E28C2478C0034E4D9 /* AppDelegate.swift in Sources */,
 				C5500F7028C2478C0034E4D9 /* SceneDelegate.swift in Sources */,
 			);
