@@ -16,6 +16,9 @@
 		C5500F9428C259240034E4D9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500F9328C259240034E4D9 /* NetworkService.swift */; };
 		C5500F9628C2599C0034E4D9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500F9528C2599C0034E4D9 /* NetworkError.swift */; };
 		C5500F9B28C25A740034E4D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500F9A28C25A740034E4D9 /* Constants.swift */; };
+		C5500F9D28C25C530034E4D9 /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500F9C28C25C530034E4D9 /* APIs.swift */; };
+		C5500FA028C25D500034E4D9 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500F9F28C25D500034E4D9 /* WeatherResponse.swift */; };
+		C5500FA428C25FD30034E4D9 /* APIsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500FA328C25FD30034E4D9 /* APIsProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		C5500F9328C259240034E4D9 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		C5500F9528C2599C0034E4D9 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		C5500F9A28C25A740034E4D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C5500F9C28C25C530034E4D9 /* APIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
+		C5500F9F28C25D500034E4D9 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
+		C5500FA328C25FD30034E4D9 /* APIsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,7 @@
 		C5500F8328C247F30034E4D9 /* CityWeatherList */ = {
 			isa = PBXGroup;
 			children = (
+				C5500F9E28C25D3E0034E4D9 /* Model */,
 				C5500F8428C2481D0034E4D9 /* View */,
 			);
 			path = CityWeatherList;
@@ -126,8 +133,10 @@
 		C5500F9228C259020034E4D9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C5500FA228C25FB40034E4D9 /* Protocols */,
 				C5500F9528C2599C0034E4D9 /* NetworkError.swift */,
 				C5500F9328C259240034E4D9 /* NetworkService.swift */,
+				C5500F9C28C25C530034E4D9 /* APIs.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -138,6 +147,22 @@
 				C5500F9A28C25A740034E4D9 /* Constants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		C5500F9E28C25D3E0034E4D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C5500F9F28C25D500034E4D9 /* WeatherResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C5500FA228C25FB40034E4D9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C5500FA328C25FD30034E4D9 /* APIsProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,12 +235,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5500FA428C25FD30034E4D9 /* APIsProtocol.swift in Sources */,
 				C5500F9428C259240034E4D9 /* NetworkService.swift in Sources */,
 				C5500F7228C2478C0034E4D9 /* CityWeatherListVC.swift in Sources */,
+				C5500F9D28C25C530034E4D9 /* APIs.swift in Sources */,
 				C5500F9128C24FD50034E4D9 /* WeatherDetailsCell.swift in Sources */,
 				C5500F9628C2599C0034E4D9 /* NetworkError.swift in Sources */,
 				C5500F9B28C25A740034E4D9 /* Constants.swift in Sources */,
 				C5500F6E28C2478C0034E4D9 /* AppDelegate.swift in Sources */,
+				C5500FA028C25D500034E4D9 /* WeatherResponse.swift in Sources */,
 				C5500F7028C2478C0034E4D9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
