@@ -8,9 +8,7 @@
 import UIKit
 
 class CityListVC: UIViewController {
-    
-    private static let CellReuseID = "CityCellID"
-    
+        
     private let tableView = UITableView()
     
     private let cities = ["Copenhagen, Denmark", "Lodz, Poland", "Brussels, Belgium", "Islamabad, Pakistan", "Current Location"]
@@ -32,10 +30,8 @@ extension CityListVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: CityListVC.CellReuseID, for: indexPath)
-        
-        cell.textLabel?.text = cities[indexPath.row]
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: WeatherDetailsCell.ReuseID, for: indexPath)
+                
         return cell
         
     }
@@ -47,13 +43,14 @@ extension CityListVC: UITableViewDataSource, UITableViewDelegate{
 extension CityListVC{
     
     private func configureVC(){
-        title = "Select City"
+        title = "Weather"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func configureTableView(){
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CityListVC.CellReuseID)
+        tableView.register(WeatherDetailsCell.self, forCellReuseIdentifier: WeatherDetailsCell.ReuseID)
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     private func layoutUI(){
@@ -64,8 +61,8 @@ extension CityListVC{
         NSLayoutConstraint.activate([
             
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
         
