@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navVC.navigationBar.prefersLargeTitles = true
         window?.rootViewController = navVC
         window?.makeKeyAndVisible()
-        window?.backgroundColor = .red
+        window?.backgroundColor = .systemBackground
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
