@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CityListVC: UIViewController {
+class CityWeatherListVC: UIViewController {
         
     private let tableView = UITableView()
     
@@ -22,7 +22,7 @@ class CityListVC: UIViewController {
     
 }
 
-extension CityListVC: UITableViewDataSource, UITableViewDelegate{
+extension CityWeatherListVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cities.count
@@ -40,7 +40,7 @@ extension CityListVC: UITableViewDataSource, UITableViewDelegate{
 }
 
 // MARK: UI Setup
-extension CityListVC{
+extension CityWeatherListVC{
     
     private func configureVC(){
         title = Constants.String.weather
