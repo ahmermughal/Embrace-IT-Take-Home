@@ -9,7 +9,6 @@ import Foundation
 
 struct APIs : APIsProtocol{
     
-    
     static func getWeather(of city: String, from fromDate: String, to toDate: String, completed : @escaping (Result<WeatherResponse, NetworkError>) -> Void){
         
         let urlStr = Constants.Network.BASE_URL + "/\(city)/\(fromDate)/\(toDate)"
@@ -26,7 +25,5 @@ struct APIs : APIsProtocol{
             }
         }
     }
-    
-    
     
 }

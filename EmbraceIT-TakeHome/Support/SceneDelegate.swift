@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let vc = CityWeatherListVC()
+        let vc = CityWeatherListVC(viewModel: CityWeatherListViewModel())
         let navVC = UINavigationController(rootViewController: vc)
         navVC.navigationBar.prefersLargeTitles = true
         window?.rootViewController = navVC

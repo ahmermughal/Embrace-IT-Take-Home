@@ -25,10 +25,8 @@ class NetworkService : NetworkServiceProtocol{
             return
         }
         
-        
         let queryItem = URLQueryItem(name: "key", value: Constants.Network.API_KEY)
         urlComponent.queryItems = [queryItem]
-
 
         guard let url = urlComponent.url else{
             completed(.failure(.invalidURL))
@@ -41,7 +39,6 @@ class NetworkService : NetworkServiceProtocol{
                 completed(.failure(.invalidResponse))
                 return
             }
-
             
             guard let data = data else{
                 completed(.failure(.invalidData))

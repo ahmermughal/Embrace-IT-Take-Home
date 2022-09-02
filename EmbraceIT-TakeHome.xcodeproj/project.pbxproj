@@ -20,6 +20,7 @@
 		C5500FA028C25D500034E4D9 /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500F9F28C25D500034E4D9 /* WeatherResponse.swift */; };
 		C5500FA428C25FD30034E4D9 /* APIsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500FA328C25FD30034E4D9 /* APIsProtocol.swift */; };
 		C5500FA628C2614A0034E4D9 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500FA528C2614A0034E4D9 /* NetworkServiceProtocol.swift */; };
+		C5500FA928C265190034E4D9 /* CityWeatherListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500FA828C265190034E4D9 /* CityWeatherListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		C5500F9F28C25D500034E4D9 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		C5500FA328C25FD30034E4D9 /* APIsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsProtocol.swift; sourceTree = "<group>"; };
 		C5500FA528C2614A0034E4D9 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		C5500FA828C265190034E4D9 /* CityWeatherListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		C5500F8328C247F30034E4D9 /* CityWeatherList */ = {
 			isa = PBXGroup;
 			children = (
+				C5500FA728C265070034E4D9 /* ViewModel */,
 				C5500F9E28C25D3E0034E4D9 /* Model */,
 				C5500F8428C2481D0034E4D9 /* View */,
 			);
@@ -166,6 +169,14 @@
 				C5500FA528C2614A0034E4D9 /* NetworkServiceProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C5500FA728C265070034E4D9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C5500FA828C265190034E4D9 /* CityWeatherListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +259,7 @@
 				C5500F6E28C2478C0034E4D9 /* AppDelegate.swift in Sources */,
 				C5500FA028C25D500034E4D9 /* WeatherResponse.swift in Sources */,
 				C5500FA628C2614A0034E4D9 /* NetworkServiceProtocol.swift in Sources */,
+				C5500FA928C265190034E4D9 /* CityWeatherListViewModel.swift in Sources */,
 				C5500F7028C2478C0034E4D9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
