@@ -60,7 +60,6 @@ extension CityWeatherListVC: CLLocationManagerDelegate{
             let latitude = location.coordinate.latitude
             let longitude = location.coordinate.longitude
             print("Location: \(latitude), \(longitude)")
-            // Handle location update
         }
     }
     

@@ -17,16 +17,22 @@ class NetworkService : NetworkServiceProtocol{
     }
  
     
-    func getAPI<T:Decodable>(url : String, resultType: T.Type, completed: @escaping (Result<T, NetworkError>) -> Void){
+    func getAPI<T:Decodable>(url : String, params: [String : String] = [:], resultType: T.Type, completed: @escaping (Result<T, NetworkError>) -> Void){
         
         guard var urlComponent = URLComponents(string: url) else {
             
             completed(.failure(.invalidURL))
             return
         }
+        var queryItems : [URLQueryItem] = []
+        let apiKeyItem = URLQueryItem(name: "key", value: Constants.Network.API_KEY)
+        queryItems.append(apiKeyItem)
         
-        let queryItem = URLQueryItem(name: "key", value: Constants.Network.API_KEY)
-        urlComponent.queryItems = [queryItem]
+        for item in params{
+            queryItems.append(URLQueryItem(name: item.key, value: item.value))
+        }
+        
+        urlComponent.queryItems = queryItems
 
         guard let url = urlComponent.url else{
             completed(.failure(.invalidURL))
