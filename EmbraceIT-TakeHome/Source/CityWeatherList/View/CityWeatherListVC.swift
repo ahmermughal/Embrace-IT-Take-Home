@@ -76,10 +76,10 @@ extension CityWeatherListVC: CLLocationManagerDelegate{
     ) {
         if !gotCurrentLocation{
             if let location = locations.first {
-                
+                gotCurrentLocation = true
                 let latitude = location.coordinate.latitude
                 let longitude = location.coordinate.longitude
-                
+                viewModel.getWeatherData(latlong: "\(latitude),\(longitude)")
             }
         }
 
@@ -90,7 +90,7 @@ extension CityWeatherListVC: CLLocationManagerDelegate{
         didFailWithError error: Error
     ) {
         // Handle failure to get a user’s location
-        print(error.localizedDescription)
+        viewModel.getWeatherData()
     }
     
 }

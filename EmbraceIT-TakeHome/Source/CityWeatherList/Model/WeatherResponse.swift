@@ -22,8 +22,6 @@ struct WeatherResponse : Codable{
         let total = days.reduce(0) { partialResult, weather in
             partialResult + weather.temp
         }
-        print("Total Temp: \(total)")
-        print("Total Count: \(days.count)")
         return total / Double(days.count)
     }
 
@@ -31,8 +29,6 @@ struct WeatherResponse : Codable{
         let total = days.reduce(0) { partialResult, weather in
             partialResult + weather.windspeed
         }
-        print("Total WindSpeed: \(total)")
-        print("Total Count: \(days.count)")
 
         return total / Double(days.count)
     }

@@ -18,9 +18,9 @@ struct CityWeatherListViewModel{
     var delegate : CityWeatherListViewModelDelegate?
     
     
-    private let cities = ["Copenhagen, Denmark", "Lodz, Poland", "Brussels,Belgium", "Islamabad, Pakistan", "Current Location"]
+    private let cities = ["Copenhagen,Denmark", "Lodz,Poland", "Brussels,Belgium", "Islamabad,Pakistan", "Current Location"]
     
-    func getWeatherData(latlong: String){
+    func getWeatherData(latlong: String = ""){
         
         var tempByCities : [TempByCity] = []
 
@@ -28,16 +28,33 @@ struct CityWeatherListViewModel{
         
         
         for city in cities {
+            
+            // when latlong is empty then dont query for current location
+            if latlong == "" && city == "Current Location" {
+                continue
+            }
+            
             dispatchGroup.enter()
             let location = city == "Current Location" ? latlong : city
             getCityWeather(of: location) { response, status in
+                dispatchGroup.leave()
                 guard let safeResponse = response, status else {
                     dispatchGroup.suspend()
                     delegate?.errorOccured()
                     return
                 }
-                dispatchGroup.leave()
-                tempByCities.append(TempByCity(city: safeResponse.city, avgTemp: safeResponse.avgTemp, avgWindSpeed: safeResponse.avgWindSpeed))
+                
+                // Check to replace Latitude and Logitude with Current Location
+                var cityStr = safeResponse.city
+                let decimalCharacters = CharacterSet.decimalDigits
+
+                let decimalRange = cityStr.rangeOfCharacter(from: decimalCharacters)
+
+                if decimalRange != nil {
+                    cityStr = "Current Location"
+                }
+                                
+                tempByCities.append(TempByCity(city: cityStr, avgTemp: safeResponse.avgTemp, avgWindSpeed: safeResponse.avgWindSpeed))
 
             }
         }
