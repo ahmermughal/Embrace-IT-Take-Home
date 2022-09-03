@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class CityWeatherListVC: UIViewController {
     
@@ -14,6 +15,7 @@ class CityWeatherListVC: UIViewController {
     private let cities = ["Copenhagen, Denmark", "Lodz, Poland", "Brussels, Belgium", "Islamabad, Pakistan", "Current Location"]
     
     private var viewModel : CityWeatherListViewModel
+    private let locationManager = CLLocationManager()
     
     init(viewModel : CityWeatherListViewModel) {
         self.viewModel = viewModel
@@ -50,6 +52,27 @@ extension CityWeatherListVC: UITableViewDataSource, UITableViewDelegate{
     
 }
 
+extension CityWeatherListVC: CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager,
+        didUpdateLocations locations: [CLLocation]
+    ) {
+        if let location = locations.first {
+            let latitude = location.coordinate.latitude
+            let longitude = location.coordinate.longitude
+            print("Location: \(latitude), \(longitude)")
+            // Handle location update
+        }
+    }
+    
+    func locationManager(
+        _ manager: CLLocationManager,
+        didFailWithError error: Error
+    ) {
+        // Handle failure to get a user’s location
+        print(error.localizedDescription)
+    }
+    
+}
 
 // MARK: UI Setup
 extension CityWeatherListVC{
@@ -57,6 +80,10 @@ extension CityWeatherListVC{
     private func configureVC(){
         title = Constants.String.weather
         navigationController?.navigationBar.prefersLargeTitles = true
+        locationManager.delegate = self
+        
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
     }
     
     private func configureTableView(){
