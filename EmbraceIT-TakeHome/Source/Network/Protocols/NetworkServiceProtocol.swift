@@ -10,5 +10,5 @@ import Foundation
 protocol NetworkServiceProtocol {
 
     
-    func getAPI<T:Decodable>(url : String, resultType: T.Type, completed: @escaping (Result<T, NetworkError>) -> Void)
+    func getAPI<T:Decodable>(url : String, params: [String : String], resultType: T.Type, completed: @escaping (Result<T, NetworkError>) -> Void)
 }

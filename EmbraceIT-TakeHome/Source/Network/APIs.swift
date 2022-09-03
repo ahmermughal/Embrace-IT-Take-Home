@@ -9,11 +9,13 @@ import Foundation
 
 struct APIs : APIsProtocol{
     
-    static func getWeather(of city: String, from fromDate: String, to toDate: String, completed : @escaping (Result<WeatherResponse, NetworkError>) -> Void){
+    static func getLastThirtyDaysWeather(of city: String, completed : @escaping (Result<WeatherResponse, NetworkError>) -> Void){
+                
+        let urlStr = Constants.Network.BASE_URL + "/\(city)/"
+
+        let params = ["include" : "days", "elements" : "temp,windspeed", "unitGroup" : "metric"]
         
-        let urlStr = Constants.Network.BASE_URL + "/\(city)/\(fromDate)/\(toDate)"
-        
-        NetworkService.shared.getAPI(url: urlStr, resultType: WeatherResponse.self) { result in
+        NetworkService.shared.getAPI(url: urlStr, params: params, resultType: WeatherResponse.self) { result in
             
             switch result{
             case .success(let response):

@@ -24,6 +24,7 @@ class NetworkService : NetworkServiceProtocol{
             completed(.failure(.invalidURL))
             return
         }
+        
         var queryItems : [URLQueryItem] = []
         let apiKeyItem = URLQueryItem(name: "key", value: Constants.Network.API_KEY)
         queryItems.append(apiKeyItem)

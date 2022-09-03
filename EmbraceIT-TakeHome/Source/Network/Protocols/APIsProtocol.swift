@@ -9,6 +9,6 @@ import Foundation
 
 protocol APIsProtocol{
     
-    static func getWeather(of city: String, from fromDate: String, to toDate: String, completed : @escaping (Result<WeatherResponse, NetworkError>) -> Void)
+    static func getLastThirtyDaysWeather(of city: String, completed : @escaping (Result<WeatherResponse, NetworkError>) -> Void)
     
 }

@@ -12,7 +12,7 @@ enum Constants {
     // MARK: Network Constants
     enum Network{
         static let BASE_URL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline"
-        static let API_KEY = "VSNNAVKP5LHNADD8NHKNGM78M"
+        static let API_KEY = "Q7S46AYW72CE7YFPT443Y635Q"
     }
     
     // MARK: String Constants

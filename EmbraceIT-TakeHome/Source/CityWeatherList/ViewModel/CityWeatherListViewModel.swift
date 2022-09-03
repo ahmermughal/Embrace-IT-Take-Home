@@ -7,40 +7,50 @@
 
 import Foundation
 
+protocol CityWeatherListViewModelDelegate{
+    
+    func responseCompleted(tempByCities: [TempByCity])
+    func errorOccured()
+}
+
 struct CityWeatherListViewModel{
     
+    var delegate : CityWeatherListViewModelDelegate?
     
-    private let cities = ["Copenhagen,Denmark", "Lodz,Poland", "Brussels,Belgium", "Islamabad,Pakistan"]
     
+    private let cities = ["Copenhagen, Denmark", "Lodz, Poland", "Brussels,Belgium", "Islamabad, Pakistan", "Current Location"]
     
-    func getWeatherData(){
+    func getWeatherData(latlong: String){
         
+        var tempByCities : [TempByCity] = []
+
         let dispatchGroup = DispatchGroup()
         
         
         for city in cities {
             dispatchGroup.enter()
-            getCityWeather(of: city, from: "2022-08-01", to: "2022-08-01") { response, status in
-                dispatchGroup.leave()
-                if !status {
+            let location = city == "Current Location" ? latlong : city
+            getCityWeather(of: location) { response, status in
+                guard let safeResponse = response, status else {
                     dispatchGroup.suspend()
+                    delegate?.errorOccured()
                     return
                 }
+                dispatchGroup.leave()
+                tempByCities.append(TempByCity(city: safeResponse.city, avgTemp: safeResponse.avgTemp, avgWindSpeed: safeResponse.avgWindSpeed))
+
             }
         }
-        
+
         dispatchGroup.notify(queue: .main) {
-            // whatever you want to do when both are done
+            delegate?.responseCompleted(tempByCities: tempByCities)
         }
 
-        
-        
     }
     
-    private func getCityWeather(of city: String, from: String, to: String, completed : @escaping ((WeatherResponse?, Bool) -> Void )){
+    private func getCityWeather(of city: String, completed : @escaping ((WeatherResponse?, Bool) -> Void )){
         
-        APIs.getWeather(of: city, from: from, to: to) { result in
-            
+        APIs.getLastThirtyDaysWeather(of: city) { result in
             switch result{
                 
             case .success(let response):
@@ -52,7 +62,6 @@ struct CityWeatherListViewModel{
                 print(error)
                 break
             }
-            
         }
         
         

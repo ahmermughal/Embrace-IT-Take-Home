@@ -13,6 +13,9 @@ class CityWeatherListVC: UIViewController {
     private let tableView = UITableView()
     
     private let cities = ["Copenhagen, Denmark", "Lodz, Poland", "Brussels, Belgium", "Islamabad, Pakistan", "Current Location"]
+
+    private var gotCurrentLocation = false
+    
     
     private var viewModel : CityWeatherListViewModel
     private let locationManager = CLLocationManager()
@@ -20,6 +23,8 @@ class CityWeatherListVC: UIViewController {
     init(viewModel : CityWeatherListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.viewModel.delegate = self
+
     }
     
     required init?(coder: NSCoder) {
@@ -32,6 +37,19 @@ class CityWeatherListVC: UIViewController {
         configureTableView()
         layoutUI()
     }
+    
+}
+
+extension CityWeatherListVC: CityWeatherListViewModelDelegate{
+    func errorOccured() {
+        print("Error Occured")
+    }
+    
+    
+    func responseCompleted(tempByCities: [TempByCity]) {
+        print("TempByCityData: \(tempByCities)")
+    }
+    
     
 }
 
@@ -56,11 +74,15 @@ extension CityWeatherListVC: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager,
         didUpdateLocations locations: [CLLocation]
     ) {
-        if let location = locations.first {
-            let latitude = location.coordinate.latitude
-            let longitude = location.coordinate.longitude
-            print("Location: \(latitude), \(longitude)")
+        if !gotCurrentLocation{
+            if let location = locations.first {
+                
+                let latitude = location.coordinate.latitude
+                let longitude = location.coordinate.longitude
+                
+            }
         }
+
     }
     
     func locationManager(

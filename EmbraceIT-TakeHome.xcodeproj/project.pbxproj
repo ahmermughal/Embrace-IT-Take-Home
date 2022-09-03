@@ -21,6 +21,7 @@
 		C5500FA428C25FD30034E4D9 /* APIsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500FA328C25FD30034E4D9 /* APIsProtocol.swift */; };
 		C5500FA628C2614A0034E4D9 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500FA528C2614A0034E4D9 /* NetworkServiceProtocol.swift */; };
 		C5500FA928C265190034E4D9 /* CityWeatherListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500FA828C265190034E4D9 /* CityWeatherListViewModel.swift */; };
+		C55B134428C3E1D700469850 /* TempByCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55B134328C3E1D700469850 /* TempByCity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		C5500FA328C25FD30034E4D9 /* APIsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIsProtocol.swift; sourceTree = "<group>"; };
 		C5500FA528C2614A0034E4D9 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		C5500FA828C265190034E4D9 /* CityWeatherListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherListViewModel.swift; sourceTree = "<group>"; };
+		C55B134328C3E1D700469850 /* TempByCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempByCity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				C5500F9F28C25D500034E4D9 /* WeatherResponse.swift */,
+				C55B134328C3E1D700469850 /* TempByCity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				C5500F9D28C25C530034E4D9 /* APIs.swift in Sources */,
 				C5500F9128C24FD50034E4D9 /* WeatherDetailsCell.swift in Sources */,
 				C5500F9628C2599C0034E4D9 /* NetworkError.swift in Sources */,
+				C55B134428C3E1D700469850 /* TempByCity.swift in Sources */,
 				C5500F9B28C25A740034E4D9 /* Constants.swift in Sources */,
 				C5500F6E28C2478C0034E4D9 /* AppDelegate.swift in Sources */,
 				C5500FA028C25D500034E4D9 /* WeatherResponse.swift in Sources */,
