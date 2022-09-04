@@ -93,6 +93,7 @@ extension CityWeatherListVC: CLLocationManagerDelegate{
             // This scenaio wont run
             break
         case .authorizedWhenInUse:
+            showLoadingView()
             manager.requestLocation()
         @unknown default:
             break
@@ -132,9 +133,24 @@ extension CityWeatherListVC{
         title = Constants.String.weather
         navigationController?.navigationBar.prefersLargeTitles = true
         locationManager.delegate = self
+
+        switch locationManager.authorizationStatus {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            break
+        case .restricted, .denied:
+            viewModel.getWeatherData()
+            break
+        case .authorizedAlways:
+            // This scenaio wont run
+            break
+        case .authorizedWhenInUse:
+            showLoadingView()
+            locationManager.requestLocation()
+        @unknown default:
+            break
+        }
         
-        locationManager.requestWhenInUseAuthorization()
-        if locationManager.authorizationStatus == .authorizedWhenInUse {locationManager.requestLocation()}
     }
     
     private func configureTableView(){
