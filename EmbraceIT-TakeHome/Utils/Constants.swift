@@ -18,6 +18,8 @@ enum Constants {
     // MARK: String Constants
     enum String{
         static let weather = "Weather"
+        static let error = "Error"
+        
     }
     
 }

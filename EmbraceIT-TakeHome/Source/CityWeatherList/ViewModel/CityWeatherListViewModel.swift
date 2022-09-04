@@ -10,7 +10,7 @@ import Foundation
 protocol CityWeatherListViewModelDelegate{
     
     func responseCompleted(tempByCities: [TempByCity])
-    func errorOccured()
+    func errorOccured(error: Error)
 }
 
 struct CityWeatherListViewModel{
@@ -36,11 +36,11 @@ struct CityWeatherListViewModel{
             
             dispatchGroup.enter()
             let location = city == "Current Location" ? latlong : city
-            getCityWeather(of: location) { response, status in
+            getCityWeather(of: location) { response, status, error in
                 dispatchGroup.leave()
                 guard let safeResponse = response, status else {
                     dispatchGroup.suspend()
-                    delegate?.errorOccured()
+                    delegate?.errorOccured(error: error!)
                     return
                 }
                 
@@ -65,18 +65,17 @@ struct CityWeatherListViewModel{
 
     }
     
-    private func getCityWeather(of city: String, completed : @escaping ((WeatherResponse?, Bool) -> Void )){
+    private func getCityWeather(of city: String, completed : @escaping ((WeatherResponse?, Bool, Error?) -> Void )){
         
         APIs.getLastThirtyDaysWeather(of: city) { result in
             switch result{
                 
             case .success(let response):
                 //print(response)
-                completed(response, true)
+                completed(response, true, nil)
                 break
             case .failure(let error):
-                completed(nil, false)
-                print(error)
+                completed(nil, false, error)
                 break
             }
         }

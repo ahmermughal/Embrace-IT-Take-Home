@@ -22,6 +22,7 @@
 		C5500FA628C2614A0034E4D9 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500FA528C2614A0034E4D9 /* NetworkServiceProtocol.swift */; };
 		C5500FA928C265190034E4D9 /* CityWeatherListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500FA828C265190034E4D9 /* CityWeatherListViewModel.swift */; };
 		C55B134428C3E1D700469850 /* TempByCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55B134328C3E1D700469850 /* TempByCity.swift */; };
+		C569E88328C49926003D25E8 /* UIVC+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C569E88228C49926003D25E8 /* UIVC+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		C5500FA528C2614A0034E4D9 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		C5500FA828C265190034E4D9 /* CityWeatherListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherListViewModel.swift; sourceTree = "<group>"; };
 		C55B134328C3E1D700469850 /* TempByCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempByCity.swift; sourceTree = "<group>"; };
+		C569E88228C49926003D25E8 /* UIVC+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVC+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		C5500F6C28C2478C0034E4D9 /* EmbraceIT-TakeHome */ = {
 			isa = PBXGroup;
 			children = (
+				C569E88128C49916003D25E8 /* Extensions */,
 				C5500F9828C25A480034E4D9 /* Utils */,
 				C5500F8228C247D50034E4D9 /* Source */,
 				C5500F8128C247C30034E4D9 /* Support */,
@@ -182,6 +185,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C569E88128C49916003D25E8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C569E88228C49926003D25E8 /* UIVC+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -256,6 +267,7 @@
 				C5500F9428C259240034E4D9 /* NetworkService.swift in Sources */,
 				C5500F7228C2478C0034E4D9 /* CityWeatherListVC.swift in Sources */,
 				C5500F9D28C25C530034E4D9 /* APIs.swift in Sources */,
+				C569E88328C49926003D25E8 /* UIVC+Ext.swift in Sources */,
 				C5500F9128C24FD50034E4D9 /* WeatherDetailsCell.swift in Sources */,
 				C5500F9628C2599C0034E4D9 /* NetworkError.swift in Sources */,
 				C55B134428C3E1D700469850 /* TempByCity.swift in Sources */,

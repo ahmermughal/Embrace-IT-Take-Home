@@ -41,8 +41,9 @@ class CityWeatherListVC: UIViewController {
 }
 
 extension CityWeatherListVC: CityWeatherListViewModelDelegate{
-    func errorOccured() {
+    func errorOccured(error: Error) {
         print("Error Occured")
+        showAlert(title: "Error", message: error.localizedDescription)
     }
     
     
