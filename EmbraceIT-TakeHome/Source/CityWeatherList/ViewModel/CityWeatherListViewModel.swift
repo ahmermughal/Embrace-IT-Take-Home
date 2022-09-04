@@ -54,7 +54,7 @@ struct CityWeatherListViewModel{
                     cityStr = "Current Location"
                 }
                                 
-                tempByCities.append(TempByCity(city: cityStr, avgTemp: safeResponse.avgTemp, avgWindSpeed: safeResponse.avgWindSpeed))
+                tempByCities.append(TempByCity(city: cityStr, avgTemp: safeResponse.avgTemp, avgWindSpeed: safeResponse.avgWindSpeed, medianTemp: safeResponse.medianTemp, medianSpeed: safeResponse.medianWindSpeed))
 
             }
         }
@@ -71,7 +71,7 @@ struct CityWeatherListViewModel{
             switch result{
                 
             case .success(let response):
-                print(response)
+                //print(response)
                 completed(response, true)
                 break
             case .failure(let error):

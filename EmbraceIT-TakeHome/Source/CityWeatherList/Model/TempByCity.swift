@@ -12,5 +12,6 @@ struct TempByCity{
     let city : String
     let avgTemp : Double
     let avgWindSpeed : Double
-    
+    let medianTemp : Double
+    let medianSpeed : Double
 }

@@ -115,8 +115,8 @@
 		C5500F8428C2481D0034E4D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C5500F8E28C24F8A0034E4D9 /* Components */,
 				C5500F7128C2478C0034E4D9 /* CityWeatherListVC.swift */,
+				C5500F8E28C24F8A0034E4D9 /* Components */,
 			);
 			path = View;
 			sourceTree = "<group>";
