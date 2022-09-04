@@ -13,10 +13,10 @@ Islamabad, Pakistan
 ## Screenshots:
 
 ### Light Mode:
-![](https://imgur.com/KlDwZ3i)
+![](https://i.imgur.com/KlDwZ3i.jpeg)
 
 ### Dark Mode:
-![](https://imgur.com/w7g0kpO)
+![](https://i.imgur.com/w7g0kpO.jpeg)
 
 
 <br />
