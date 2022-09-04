@@ -39,6 +39,7 @@ Here are a few technologies and techniques that are used in this application:
   - Programmatic UI
   - Table Views
   - Data Binding with Delegates
+  - Dispatch Group
   - MVVM Architecture
   
 <br />
