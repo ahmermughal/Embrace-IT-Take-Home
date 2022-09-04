@@ -32,6 +32,16 @@ class WeatherDetailsCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    func setup(data: TempByCity){
+        
+        cityNameLabel.text = "City: \(data.city)"
+        windAvgLabel.text = "Avg Wind: \(String(format: "%.2f", data.avgWindSpeed))"
+        windMedianLabel.text = "Median Wind: \(String(format: "%.2f", data.medianSpeed))"
+        tempAvgLabel.text = "Avg Temp: \(String(format: "%.2f", data.avgTemp))"
+        tempMedianLabel.text = "Median Temp: \(String(format: "%.2f", data.medianTemp))"
+
+    }
 
 }
 
@@ -59,7 +69,7 @@ extension WeatherDetailsCell{
         
         NSLayoutConstraint.activate([
         
-            cityNameLabel.topAnchor.constraint(equalTo: self.topAnchor),
+            cityNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
             cityNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             cityNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
 
@@ -78,7 +88,7 @@ extension WeatherDetailsCell{
             tempMedianLabel.topAnchor.constraint(equalTo: tempAvgLabel.bottomAnchor, constant: 8),
             tempMedianLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             tempMedianLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            tempMedianLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8)
+            tempMedianLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
         
         ])
         

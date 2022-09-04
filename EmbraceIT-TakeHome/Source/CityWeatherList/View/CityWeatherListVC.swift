@@ -47,8 +47,8 @@ extension CityWeatherListVC: CityWeatherListViewModelDelegate{
     }
     
     
-    func responseCompleted(tempByCities: [TempByCity]) {
-        print("TempByCityData: \(tempByCities)")
+    func responseCompleted() {
+        tableView.reloadData()
     }
     
     
@@ -57,12 +57,14 @@ extension CityWeatherListVC: CityWeatherListViewModelDelegate{
 extension CityWeatherListVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cities.count
+        return viewModel.tempByCities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: WeatherDetailsCell.ReuseID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: WeatherDetailsCell.ReuseID, for: indexPath) as! WeatherDetailsCell
+        
+        cell.setup(data: viewModel.tempByCities[indexPath.row])
         
         return cell
         
@@ -91,6 +93,7 @@ extension CityWeatherListVC: CLLocationManagerDelegate{
         didFailWithError error: Error
     ) {
         // Handle failure to get a user’s location
+        print(error.localizedDescription)
         viewModel.getWeatherData()
     }
     
@@ -112,6 +115,7 @@ extension CityWeatherListVC{
         tableView.dataSource = self
         tableView.register(WeatherDetailsCell.self, forCellReuseIdentifier: WeatherDetailsCell.ReuseID)
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.showsVerticalScrollIndicator = false
     }
     
     private func layoutUI(){

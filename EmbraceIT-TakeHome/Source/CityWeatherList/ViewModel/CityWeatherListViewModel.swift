@@ -9,20 +9,20 @@ import Foundation
 
 protocol CityWeatherListViewModelDelegate{
     
-    func responseCompleted(tempByCities: [TempByCity])
+    func responseCompleted()
     func errorOccured(error: Error)
 }
 
-struct CityWeatherListViewModel{
+class CityWeatherListViewModel{
     
     var delegate : CityWeatherListViewModelDelegate?
     
+    var tempByCities : [TempByCity] = []
     
     private let cities = ["Copenhagen,Denmark", "Lodz,Poland", "Brussels,Belgium", "Islamabad,Pakistan", "Current Location"]
     
     func getWeatherData(latlong: String = ""){
         
-        var tempByCities : [TempByCity] = []
 
         let dispatchGroup = DispatchGroup()
         
@@ -36,11 +36,11 @@ struct CityWeatherListViewModel{
             
             dispatchGroup.enter()
             let location = city == "Current Location" ? latlong : city
-            getCityWeather(of: location) { response, status, error in
+            getCityWeather(of: location) { [weak self] response, status, error in
                 dispatchGroup.leave()
                 guard let safeResponse = response, status else {
                     dispatchGroup.suspend()
-                    delegate?.errorOccured(error: error!)
+                    self?.delegate?.errorOccured(error: error!)
                     return
                 }
                 
@@ -54,13 +54,13 @@ struct CityWeatherListViewModel{
                     cityStr = "Current Location"
                 }
                                 
-                tempByCities.append(TempByCity(city: cityStr, avgTemp: safeResponse.avgTemp, avgWindSpeed: safeResponse.avgWindSpeed, medianTemp: safeResponse.medianTemp, medianSpeed: safeResponse.medianWindSpeed))
+                self?.tempByCities.append(TempByCity(city: cityStr, avgTemp: safeResponse.avgTemp, avgWindSpeed: safeResponse.avgWindSpeed, medianTemp: safeResponse.medianTemp, medianSpeed: safeResponse.medianWindSpeed))
 
             }
         }
 
-        dispatchGroup.notify(queue: .main) {
-            delegate?.responseCompleted(tempByCities: tempByCities)
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            self?.delegate?.responseCompleted()
         }
 
     }
