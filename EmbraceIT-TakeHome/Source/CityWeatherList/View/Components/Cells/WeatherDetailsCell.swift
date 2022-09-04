@@ -11,6 +11,7 @@ class WeatherDetailsCell: UITableViewCell {
 
     static let ReuseID = "WeatherDetailsCellID"
     
+    // MARK: Views
     private let cityNameLabel = UILabel()
     private let windAvgLabel = UILabel()
     private let windMedianLabel = UILabel()
@@ -19,7 +20,7 @@ class WeatherDetailsCell: UITableViewCell {
     
     
     
-    
+    // MARK: Override functions
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -32,7 +33,7 @@ class WeatherDetailsCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    // MARK: Functions
     func setup(data: TempByCity){
         
         cityNameLabel.text = "City: \(data.city)"

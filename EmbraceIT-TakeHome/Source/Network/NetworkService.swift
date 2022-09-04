@@ -9,14 +9,16 @@ import Foundation
 
 class NetworkService : NetworkServiceProtocol{
     
+    // MARK: Variables
     static let shared = NetworkService()
     private var urlSession : URLSession
     
+    // MARK: Init
     init(urlSession: URLSession = .shared){
         self.urlSession = urlSession
     }
  
-    
+    // MARK: Network Functions
     func getAPI<T:Decodable>(url : String, params: [String : String] = [:], resultType: T.Type, completed: @escaping (Result<T, NetworkError>) -> Void){
         
         guard var urlComponent = URLComponents(string: url) else {

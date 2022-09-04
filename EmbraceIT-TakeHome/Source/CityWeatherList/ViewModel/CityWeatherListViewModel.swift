@@ -15,14 +15,14 @@ protocol CityWeatherListViewModelDelegate{
 
 class CityWeatherListViewModel{
     
+    // MARK: Variables
     var delegate : CityWeatherListViewModelDelegate?
-    
     var tempByCities : [TempByCity] = []
-    
     private let cities = ["Copenhagen,Denmark", "Lodz,Poland", "Brussels,Belgium", "Islamabad,Pakistan", "Current Location"]
-    
+
+    // MARK: Functions
     func getWeatherData(latlong: String = ""){
-        
+
         delegate?.updateLoading(showLoader: true)
         let dispatchGroup = DispatchGroup()
         

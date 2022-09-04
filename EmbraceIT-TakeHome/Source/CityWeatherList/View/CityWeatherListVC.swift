@@ -10,16 +10,16 @@ import CoreLocation
 
 class CityWeatherListVC: UIViewControllerWithLoading {
     
+    // MARK: Views
     private let tableView = UITableView()
-    
-    private let cities = ["Copenhagen, Denmark", "Lodz, Poland", "Brussels, Belgium", "Islamabad, Pakistan", "Current Location"]
 
+    
+    // MARK: Variables
     private var gotCurrentLocation = false
-    
-    
     private var viewModel : CityWeatherListViewModel
     private let locationManager = CLLocationManager()
     
+    // MARK: Init
     init(viewModel : CityWeatherListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -31,6 +31,7 @@ class CityWeatherListVC: UIViewControllerWithLoading {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         configureVC()
@@ -40,6 +41,7 @@ class CityWeatherListVC: UIViewControllerWithLoading {
     
 }
 
+// MARK: ViewModel Delegate
 extension CityWeatherListVC: CityWeatherListViewModelDelegate{
     func updateLoading(showLoader: Bool) {
         if showLoader {showLoadingView()} else {dismissLoadingView()}
@@ -58,6 +60,7 @@ extension CityWeatherListVC: CityWeatherListViewModelDelegate{
     
 }
 
+// MARK: Tableview delegate
 extension CityWeatherListVC: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,6 +80,7 @@ extension CityWeatherListVC: UITableViewDataSource, UITableViewDelegate{
     
 }
 
+// MARK: Location Manager delegate
 extension CityWeatherListVC: CLLocationManagerDelegate{
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
