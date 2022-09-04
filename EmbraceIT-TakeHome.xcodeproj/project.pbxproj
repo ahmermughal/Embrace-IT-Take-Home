@@ -23,6 +23,7 @@
 		C5500FA928C265190034E4D9 /* CityWeatherListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5500FA828C265190034E4D9 /* CityWeatherListViewModel.swift */; };
 		C55B134428C3E1D700469850 /* TempByCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55B134328C3E1D700469850 /* TempByCity.swift */; };
 		C569E88328C49926003D25E8 /* UIVC+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C569E88228C49926003D25E8 /* UIVC+Ext.swift */; };
+		C569E88628C4A3AC003D25E8 /* UIViewControllerWithLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = C569E88528C4A3AC003D25E8 /* UIViewControllerWithLoading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		C5500FA828C265190034E4D9 /* CityWeatherListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherListViewModel.swift; sourceTree = "<group>"; };
 		C55B134328C3E1D700469850 /* TempByCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempByCity.swift; sourceTree = "<group>"; };
 		C569E88228C49926003D25E8 /* UIVC+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVC+Ext.swift"; sourceTree = "<group>"; };
+		C569E88528C4A3AC003D25E8 /* UIViewControllerWithLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerWithLoading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				C5500F9A28C25A740034E4D9 /* Constants.swift */,
+				C569E88528C4A3AC003D25E8 /* UIViewControllerWithLoading.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				C5500F6E28C2478C0034E4D9 /* AppDelegate.swift in Sources */,
 				C5500FA028C25D500034E4D9 /* WeatherResponse.swift in Sources */,
 				C5500FA628C2614A0034E4D9 /* NetworkServiceProtocol.swift in Sources */,
+				C569E88628C4A3AC003D25E8 /* UIViewControllerWithLoading.swift in Sources */,
 				C5500FA928C265190034E4D9 /* CityWeatherListViewModel.swift in Sources */,
 				C5500F7028C2478C0034E4D9 /* SceneDelegate.swift in Sources */,
 			);

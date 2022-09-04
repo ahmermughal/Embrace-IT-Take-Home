@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class CityWeatherListVC: UIViewController {
+class CityWeatherListVC: UIViewControllerWithLoading {
     
     private let tableView = UITableView()
     
@@ -41,6 +41,10 @@ class CityWeatherListVC: UIViewController {
 }
 
 extension CityWeatherListVC: CityWeatherListViewModelDelegate{
+    func updateLoading(showLoader: Bool) {
+        if showLoader {showLoadingView()} else {dismissLoadingView()}
+    }
+    
     func errorOccured(error: Error) {
         print("Error Occured")
         showAlert(title: "Error", message: error.localizedDescription)
@@ -74,6 +78,24 @@ extension CityWeatherListVC: UITableViewDataSource, UITableViewDelegate{
 }
 
 extension CityWeatherListVC: CLLocationManagerDelegate{
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+        switch manager.authorizationStatus {
+        case .notDetermined, .restricted, .denied:
+            viewModel.getWeatherData()
+            break
+        case .authorizedAlways:
+            // This scenaio wont run
+            break
+        case .authorizedWhenInUse:
+            manager.requestLocation()
+        @unknown default:
+            break
+        }
+        
+    }
+    
     func locationManager(_ manager: CLLocationManager,
         didUpdateLocations locations: [CLLocation]
     ) {
@@ -108,7 +130,7 @@ extension CityWeatherListVC{
         locationManager.delegate = self
         
         locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+        if locationManager.authorizationStatus == .authorizedWhenInUse {locationManager.requestLocation()}
     }
     
     private func configureTableView(){

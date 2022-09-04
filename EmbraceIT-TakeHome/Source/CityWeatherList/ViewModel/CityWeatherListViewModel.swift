@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CityWeatherListViewModelDelegate{
-    
+    func updateLoading(showLoader: Bool)
     func responseCompleted()
     func errorOccured(error: Error)
 }
@@ -23,7 +23,7 @@ class CityWeatherListViewModel{
     
     func getWeatherData(latlong: String = ""){
         
-
+        delegate?.updateLoading(showLoader: true)
         let dispatchGroup = DispatchGroup()
         
         
@@ -40,6 +40,7 @@ class CityWeatherListViewModel{
                 dispatchGroup.leave()
                 guard let safeResponse = response, status else {
                     dispatchGroup.suspend()
+                    self?.delegate?.updateLoading(showLoader: false)
                     self?.delegate?.errorOccured(error: error!)
                     return
                 }
@@ -60,6 +61,7 @@ class CityWeatherListViewModel{
         }
 
         dispatchGroup.notify(queue: .main) { [weak self] in
+            self?.delegate?.updateLoading(showLoader: false)
             self?.delegate?.responseCompleted()
         }
 
